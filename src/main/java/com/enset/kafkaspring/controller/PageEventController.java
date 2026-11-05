@@ -19,7 +19,7 @@ public class PageEventController {
     public PageEvent publish(String name, String topic) {
         PageEvent pageEvent = new PageEvent(name, Math.random() < 0.5? "U1": "U2",
                 LocalDate.now(),
-                new Random().nextLong() * 10000);
+                new Random().nextLong(10000));
         streamBridge.send(topic, pageEvent);
         return pageEvent;
 
